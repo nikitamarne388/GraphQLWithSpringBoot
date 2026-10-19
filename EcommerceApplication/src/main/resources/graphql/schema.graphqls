@@ -1,0 +1,54 @@
+type User {
+userId:ID!
+name:String
+email:String
+phone:String
+password:String
+orders:[Order!]
+}
+
+type Order{
+orderId:ID!
+orderDetails:String
+address:String
+price:Int
+user:User
+}
+
+type Query {
+getUserById(userId:ID!):User
+getAllUsers:[User!]!
+getOrderById(orderId:ID!):Order
+getAllOrders: [Order!]!
+getAllOrdersByUserId(userId:ID!):[Order!]!
+}
+
+type Mutation {
+#User Mutations
+createUser(input:UserInput!):User!
+updateUser(userId:ID!,input:UserInput!):User!
+deleteUser(userId:ID!):Boolean!
+
+#Order Mutations
+createOrder(input:OrderInput!):Order!
+updateOrder(orderId:ID!,input:UpdateOrderInput!):Order!
+deleteOrder(orderId:ID!):Boolean!
+}
+
+input UserInput {
+name:String!
+email:String!
+phone:String!
+password:String!
+}
+
+input OrderInput{
+orderDetails:String!
+address:String!
+price:Int!
+userId:ID!
+}
+
+input UpdateOrderInput{
+address:String!
+}
