@@ -2,7 +2,7 @@
 
 # E-commerce Backend
 
-A backend-only e-commerce application built while learning Java backend development.
+A backend-only e-commerce application built while learning GraphQL with Springboot backend development.
 
 ## Technologies Used
 
